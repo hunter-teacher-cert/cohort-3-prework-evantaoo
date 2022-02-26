@@ -1,0 +1,40 @@
+1. What is the output of the following program? Be precise about where there are spaces and where there are newlines.
+Hint: Start by describing in words what ping and baffle do when they are invoked.
+
+When ping is called, it prints: 
+".\n"
+
+When baffle is called, it prints "wug" and then calls ping. Therefore, in sum, it prints: 
+"wug.\n"
+
+When zoop is called, it calls baffle, prints "You wugga" followed by a space, and then calls baffle again. Therefore, in sum, it prints: 
+"wug.\nYou wugga wug.\n"
+
+Examining the main method, the final output is: 
+"No, I wug.\nYou wugga wug.\nI wug.\n" 
+
+Or formatted with new lines: 
+"No, I wug.
+ You wugga wug.
+ I wug.
+"
+
+2. Draw a stack diagram that shows the state of the program the first time ping is invoked.
+
+zoop [   ]
+baffle [   ]
+ping [   ]
+baffle [   ]
+ping [   ]
+baffle [   ]
+ping [   ]
+
+3. What happens if you invoke baffle(); at the end of the ping method? (We will see why in the next chapter.)
+
+If baffle() is invoked at the end of ping, a stack overflow will eventually arise. This can be illustrated by a stack diagram when baffle() is called just a single time: 
+
+baffle [   ]
+ping [   ]
+baffle [   ]
+ping [   ]
+...
